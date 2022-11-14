@@ -11,6 +11,10 @@ export class HttpService {
 	private httpInterceptors: AbstractInterceptor[] = resolveInstances(httpInterceptorProviders)
 
 	constructor() {
+		this.setup()
+	}
+
+	private setup() {
 		setupApi(this.request.bind(this) as any)
 	}
 
