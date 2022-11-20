@@ -30,8 +30,19 @@ export default class TokenService {
 		return this.refresh$.pipe(share())
 	}
 
+	get valid() {
+		if (this.token && this.token.exp < Date.now()) {
+			return true
+		}
+		return false
+	}
+
 	set(token?: Token) {
 		this.save(token)
+	}
+
+	clear() {
+		this.save()
 	}
 
 	private save(token?: Token) {
@@ -42,6 +53,7 @@ export default class TokenService {
 			token.exp = Date.now() + token.tokenExpire * 1000
 			this.store.set('token', token)
 		}
+		this.change$.next(this.token)
 		this.buildRefresh()
 	}
 

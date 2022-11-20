@@ -1,6 +1,6 @@
 import { RouterView } from 'vue-router'
 import { Component, VueComponent } from 'vue3-oop'
-import AuthService from './core/auth/auth.service'
+import AuthService from './core/authentication/auth.service'
 import { HttpService } from './core/http/http'
 import RouterStart from './core/router'
 

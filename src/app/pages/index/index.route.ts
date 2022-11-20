@@ -1,4 +1,4 @@
-import AuthService from '@/app/core/auth/auth.service'
+import AuthService from '@/app/core/authentication/auth.service'
 import { Injectable, SkipSelf } from 'injection-js'
 import type { RouteRecord } from 'vue-router'
 

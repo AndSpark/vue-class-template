@@ -1,4 +1,4 @@
-import { Token } from '../auth/types'
+import { Token } from '../authentication/types'
 
 export type localStorageItem<T> = {
 	value: T

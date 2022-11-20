@@ -3,5 +3,10 @@ export interface Token {
 	tokenExpire: number
 	refreshToken: string
 	exp: number
-	[x: string]: any
+	[prop: string]: any
+}
+
+export interface User {
+	[prop: string]: any
+	username?: string
 }
