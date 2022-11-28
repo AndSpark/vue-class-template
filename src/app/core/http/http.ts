@@ -7,7 +7,9 @@ import AbstractInterceptor from './interceptor/abstract-interceptor'
 
 @Injectable()
 export class HttpService {
-	private instance: AxiosInstance = axios.create()
+	private instance: AxiosInstance = axios.create({
+		baseURL: '',
+	})
 	private httpInterceptors: AbstractInterceptor[] = resolveInstances(httpInterceptorProviders)
 
 	constructor() {

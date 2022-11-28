@@ -9,7 +9,6 @@ export default class TokenService {
 	private refresh$ = new Subject<Token | undefined>()
 	private timer$?: Subscription
 	private _token?: Token
-
 	constructor(private store: LocalStorageService) {}
 
 	public get token() {

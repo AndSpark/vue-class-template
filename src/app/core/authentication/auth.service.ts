@@ -1,4 +1,4 @@
-import { Injectable, SkipSelf } from 'injection-js'
+import { Injectable, Optional, SkipSelf } from 'injection-js'
 import { BehaviorSubject, catchError, map, merge, of, share, switchMap, tap } from 'rxjs'
 import { isEmptyObject } from './helper'
 import LoginService from './login.service'
@@ -16,7 +16,7 @@ export default class AuthService {
 		share()
 	)
 
-	constructor(@SkipSelf() private tokenService: TokenService, private loginService: LoginService) {}
+	constructor(private tokenService: TokenService, private loginService: LoginService) {}
 
 	change() {
 		return this.change$

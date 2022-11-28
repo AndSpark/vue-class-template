@@ -12,7 +12,13 @@ export default class TokenInterceptor implements AbstractInterceptor {
 		next: AxiosRequest
 	): Promise<AxiosResponse<any, any>> {
 		if (this.tokenService.valid && request.withCredentials !== false) {
-			request.headers!['Authorization'] = this.tokenService.token!.token
+			if (request.headers) {
+				request.headers!['Authorization'] = this.tokenService.token!.token
+			} else {
+				request.headers = {
+					Authorization: this.tokenService.token!.token,
+				}
+			}
 			request.withCredentials = true
 		}
 		return next(request)

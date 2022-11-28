@@ -10,6 +10,7 @@ export default class ErrorInterceptor implements AbstractInterceptor {
 	): Promise<AxiosResponse<any, any>> {
 		return next(request).catch(err => {
 			console.log('请求出错')
+
 			return err
 		})
 	}
